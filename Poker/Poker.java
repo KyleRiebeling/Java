@@ -10,6 +10,7 @@ package Poker;
 
 public class Poker {
     public static void main(String[] args) {
+        java.util.Date date = new java.util.Date();
         DeckOfCards myDeckOfCards = new DeckOfCards();
         myDeckOfCards.shuffle(); // place Cards in random order
         Card[] playersHand = new Card[5];
@@ -19,6 +20,9 @@ public class Poker {
             playersHand[i] = myDeckOfCards.dealCard();
             System.out.println(playersHand[i].toString());
         }
-        System.out.printf("%s", myDeckOfCards.evaluateHand(playersHand));
+        System.out.printf("%s\n", myDeckOfCards.evaluateHand(playersHand));
+    
+        System.out.printf("Thank you for using the Card Shuffling and Dealing application.\nTime of calculation is %s", date);
+        System.exit(0);
     } 
 } 
