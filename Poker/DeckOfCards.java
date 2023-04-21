@@ -51,8 +51,6 @@ public class DeckOfCards {
     }
 
     public String evaluateHand(Card[] hand){
-        String[] scores = {"Nothing", "A pair", "Two pairs", "Three of a kind",
-        "Four of a kind", "A flush", "A straight", "A full house"};
 
         int[] suitsFound = new int[5];
         int[] facesFound = new int[14];
@@ -75,9 +73,6 @@ public class DeckOfCards {
                     suitsFound[4]++;
                     break;
             }
-
-            //"Ace", "Deuce", "Three", "Four", "Five", "Six",
-        //"Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"
             switch (hand[i].getFace()){
                 case "Ace":
                     facesFound[0]++;
@@ -124,8 +119,12 @@ public class DeckOfCards {
             }
         }
 
-        if (fullHouse(suitsFound, facesFound)){
+        if (fullHouse(facesFound)){
             return "Full house!";
+        }
+
+        if (fourOfAKind(facesFound)){
+            return "Four of a kind!";
         }
 
         if (threeOfAKind(facesFound)){
@@ -143,18 +142,35 @@ public class DeckOfCards {
         return "Nothing";
     }
 
-    private boolean fullHouse(int[] s, int[] f){
-        if (threeOfAKind(f) && pair(f)){
-            return true;
+    private boolean fullHouse(int[] f){
+        boolean pair3 = false;
+        boolean pair2 = false;
+        for (int i = 0; i < f.length; i++){
+            if (f[i] == 2){
+                pair2 = true;
+            }
+            if (f[i] == 3){
+                pair3 = true;
+            }
+            if (pair2 && pair3){
+                return true;
+            }
         }
-        else {
-            return false;
+        return false;
+    }
+
+    private boolean fourOfAKind(int[] f){
+        for (int i = 0; i < f.length; i++){
+            if (f[i] == 4){
+                return true;
+            }
         }
+        return false;
     }
 
     private boolean threeOfAKind(int[] f){
         for (int i = 0; i < f.length; i++){
-            if (f[i] >=3){
+            if (f[i] ==3){
                 return true;
             }
         }
@@ -163,7 +179,7 @@ public class DeckOfCards {
 
     private boolean pair(int[] f){
         for (int i = 0; i < f.length; i++){
-            if (f[i] >=2){
+            if (f[i] == 2){
                 return true;
             }
         }
