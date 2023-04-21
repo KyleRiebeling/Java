@@ -124,9 +124,64 @@ public class DeckOfCards {
             }
         }
 
+        if (fullHouse(suitsFound, facesFound)){
+            return "Full house!";
+        }
 
+        if (threeOfAKind(facesFound)){
+            return "Three of a kind";
+        }
 
-        return "NULL";
+        if (twoPairs(facesFound)){
+            return "Two pairs";
+        }
+
+        if (pair(facesFound)){
+            return "One pair";
+        }
+        
+        return "Nothing";
     }
+
+    private boolean fullHouse(int[] s, int[] f){
+        if (threeOfAKind(f) && pair(f)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    private boolean threeOfAKind(int[] f){
+        for (int i = 0; i < f.length; i++){
+            if (f[i] >=3){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean pair(int[] f){
+        for (int i = 0; i < f.length; i++){
+            if (f[i] >=2){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    private boolean twoPairs(int[] f){
+        int pairCount = 0;
+        for (int i = 0; i < f.length; i++){
+            if (f[i] >=2){
+                pairCount++;
+            }
+            if (pairCount >= 2){
+                return true;
+            }
+        }
+        return false;
+    }
+    
 } 
 

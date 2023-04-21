@@ -8,7 +8,7 @@ public class Poker {
         // print all 52 Cards in the order in which they are dealt
         for (int i = 0; i < 5; i++) {
             playersHand[i] = myDeckOfCards.dealCard();
-            //System.out.println(playersHand[i].toString());
+            System.out.println(playersHand[i].toString());
         }
 
         System.out.printf("%s", myDeckOfCards.evaluateHand(playersHand));
