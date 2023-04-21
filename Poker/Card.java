@@ -13,5 +13,13 @@ public class Card {
     public String toString() { 
         return face + " of " + suit; 
     }
+
+    public String getFace(){
+        return face;
+    }
+
+    public String getSuit(){
+        return suit;
+    }
 }
     

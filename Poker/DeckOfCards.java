@@ -48,6 +48,85 @@ public class DeckOfCards {
         else {
             return null; // return null to indicate that all Cards were dealt
         } 
-    } 
+    }
+
+    public String evaluateHand(Card[] hand){
+        String[] scores = {"Nothing", "A pair", "Two pairs", "Three of a kind",
+        "Four of a kind", "A flush", "A straight", "A full house"};
+
+        int[] suitsFound = new int[5];
+        int[] facesFound = new int[14];
+
+        for (int i = 0; i < 5; i++){
+            switch (hand[i].getSuit()){
+                case "Hearts":
+                    suitsFound[0]++;
+                    break;
+                case "Clubs":
+                    suitsFound[1]++;
+                    break;
+                case "Spades":
+                    suitsFound[2]++;
+                    break;
+                case "Diamonds":
+                    suitsFound[3]++;
+                    break;
+                default:
+                    suitsFound[4]++;
+                    break;
+            }
+
+            //"Ace", "Deuce", "Three", "Four", "Five", "Six",
+        //"Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"
+            switch (hand[i].getFace()){
+                case "Ace":
+                    facesFound[0]++;
+                    break;
+                case "Deuce":
+                    facesFound[1]++;
+                    break;
+                case "Three":
+                    facesFound[2]++;
+                    break;
+                case "Four":
+                    facesFound[3]++;
+                    break; 
+                case "Five":
+                    facesFound[4]++;
+                    break;
+                case "Six":
+                    facesFound[5]++;
+                    break;
+                case "Seven":
+                    facesFound[6]++;
+                    break;
+                case "Eight":
+                    facesFound[7]++;
+                    break;
+                case "Nine":
+                    facesFound[8]++;
+                    break;
+                case "Ten":
+                    facesFound[9]++;
+                    break;
+                case "Jack":
+                    facesFound[10]++;
+                    break;
+                case "Queen":
+                    facesFound[11]++;
+                    break;
+                case "King":
+                    facesFound[12]++;
+                    break;
+                default:
+                    facesFound[13]++;
+                    break;
+            }
+        }
+
+
+
+        return "NULL";
+    }
 } 
 
