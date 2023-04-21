@@ -119,8 +119,20 @@ public class DeckOfCards {
             }
         }
 
+        if (facesFound[13] != 0 || suitsFound[4] != 0){
+            return "ERROR";
+        }
+
         if (fullHouse(facesFound)){
             return "Full house!";
+        }
+
+        if (straight(facesFound)){
+            return "Straight!";
+        }
+
+        if (flush(suitsFound)){
+            return "Flush!";
         }
 
         if (fourOfAKind(facesFound)){
@@ -153,6 +165,31 @@ public class DeckOfCards {
                 pair3 = true;
             }
             if (pair2 && pair3){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean straight(int[] f){
+        int counter = 0;
+        for (int i = 0; i < f.length; i++){
+            if (f[i] == 1){
+                counter++;
+            }
+            else{
+                counter = 0;
+            }
+            if (counter == 5){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean flush(int[] s){
+        for (int i = 0; i < s.length; i++){
+            if (s[i] == 5){
                 return true;
             }
         }
