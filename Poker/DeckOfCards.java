@@ -1,4 +1,4 @@
-package Blackjack;
+package Poker;
 import java.security.SecureRandom;
 
 public class DeckOfCards {

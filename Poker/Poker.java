@@ -1,6 +1,6 @@
-package Blackjack;
+package Poker;
 
-public class Blackjack {
+public class Poker {
     // execute application
     public static void main(String[] args) {
         DeckOfCards myDeckOfCards = new DeckOfCards();
