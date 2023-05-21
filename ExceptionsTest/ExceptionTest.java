@@ -1,8 +1,16 @@
+/*Programmer Name: Kyle Riebeling
+ * Assignment Start: 12:05 PM 5/21/2023
+ * Assignment Completion: 12:39 PM 5/21/2023
+ * Total Hours of Assignment: ~ 30 minutes  
+ * Comments: 
+ */
+
 import java.io.IOException;
 
 //Exception subclassing
 public class ExceptionTest {
    public static void main(String[] args) {
+      java.util.Date date = new java.util.Date();
       for ( int i = 0; i < 5; i++){
          try{
             switch (i){
@@ -30,6 +38,8 @@ public class ExceptionTest {
             System.out.println("Base Exception: " + e.getMessage());
         }
       }
+      System.out.printf("\nThank you for using the Exception application.\nTime of calculation is %s\n\n", date);
+      System.exit(0);
    } 
 } 
 // subclasses of Exception
